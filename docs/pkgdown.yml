@@ -1,0 +1,9 @@
+pandoc: 3.1.1
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles: {}
+last_built: 2023-10-01T16:29Z
+urls:
+  reference: https://danigiro.github.io/TimeGPTapi/reference
+  article: https://danigiro.github.io/TimeGPTapi/articles
+
