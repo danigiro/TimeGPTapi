@@ -56,7 +56,7 @@ callTimeGPT <- function(text, token = NULL, verbose = FALSE, historic = FALSE){
   return(rsp_api)
 }
 
-#' Set and get the TimeGPT token in the R environment
+#' Set and get the TimeGPT API token in the R environment
 #'
 #' Set the \code{TimeGPT} token as an environment variable. You should add
 #' \code{TIMEGPT_TOKEN = <token>} to your \code{.Renviron} otherwise you will
@@ -68,6 +68,7 @@ callTimeGPT <- function(text, token = NULL, verbose = FALSE, historic = FALSE){
 #' @return \code{get_timeGPT_token} returns the token.
 #' @rdname timeGPT_token
 #'
+#' @order 2
 #' @export
 get_timeGPT_token <- function(){
   token <- Sys.getenv("TIMEGPT_TOKEN")
@@ -81,7 +82,7 @@ get_timeGPT_token <- function(){
 }
 
 #' @rdname timeGPT_token
-#'
+#' @order 1
 #' @export
 set_TimeGPT_token <- function(token){
   if (is.null(token)) {

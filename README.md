@@ -4,6 +4,13 @@
 # TimeGPTapi
 
 <!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+[![devel
+version](https://img.shields.io/badge/devel%20version-0.1.0-blue.svg)](https://github.com/daniGiro/TimeGPTapi)
+[![License:
+GPL-3](https://img.shields.io/badge/license-GPL--3-forestgreen.svg)](https://cran.r-project.org/web/licenses/GPL-3)
 <!-- badges: end -->
 
 `TimeGPT` is a generative pre-trained transformer model for time series
@@ -37,7 +44,7 @@ library(TimeGPTapi)
 y <- AirPassengers
 time_air <- zoo::as.Date(AirPassengers)
 
-# Set and get the TimeGPT token
+# Set the TimeGPT API token
 set_TimeGPT_token("<TIMEGPT_TOKEN>")
 obj <- TimeGPT(AirPassengers, time_air, freq = "M", verbose = TRUE, historic = TRUE)
 

@@ -1,0 +1,36 @@
+url: https://danigiro.github.io/TimeGPTapi
+
+development:
+  mode: unreleased
+  destination: dev
+  version_label: default
+
+template:
+  params:
+    bootstrap: 5
+    bootswatch: cosmo
+
+navbar:
+#  type: inverse
+  structure:
+    left: [home, reference, news]
+    right:  [github, rpro]
+  components:
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/daniGiro/FoReco
+    reference:
+      text: "Reference"
+      icon: fa-book
+      href: reference/index.html
+    news:
+      text: "News"
+      icon: far fa-newspaper
+      href: news/index.html
+    home:
+      text: "Home"
+      icon: fa-home
+      href: index.html
+    rpro:
+      icon: fab fa-r-project fa-lg
+      href: https://cran.r-project.org/web/packages/FoReco/index.html
