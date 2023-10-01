@@ -1,13 +1,28 @@
 Package: TimeGPTapi
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Interact with the 'TimeGPT' API
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: 
+    c(person(given = "Daniele",
+             family = "Girolimetto",
+             role = c("aut", "cre", "fnd"),
+             email = "daniele.girolimetto@phd.unipd.it",
+             comment = c(ORCID = "0000-0001-9387-1232")))
+Maintainer: Daniele Girolimetto <daniele.girolimetto@phd.unipd.it>
+Description: Interface to interact with the 'TimeGPT' API developed by Nixtla <https://nixtla.io/>. 
+    TimeGPT is a generative pre-trained transformer model specialized 
+    in prediction <https://docs.nixtla.io/docs>.
+License: GPL (>= 3)
 Encoding: UTF-8
-LazyData: true
 URL: https://github.com/danigiro/TimeGPTapi
 BugReports: https://github.com/danigiro/TimeGPTapi/issues
+RoxygenNote: 7.2.3
+Depends:
+    R (>= 3.4.0)
+Imports: 
+    httr2,
+    jsonlite,
+    stats,
+    forecast,
+    cli,
+    askpass

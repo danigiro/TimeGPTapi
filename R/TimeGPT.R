@@ -1,19 +1,36 @@
-#' Title
+#' Fit TimeGPT model to univariate time series
 #'
-#' @param x
-#' @param freq
-#' @param clean_ex_first
-#' @param finetune_steps
+#' Returns an \code{TimeGPT} model applied to y.
 #'
-#' @return
+#' @aliases print.TimeGPT
+#'
+#' @usage TimeGPT(y, time, freq, xreg, token = NULL, clean_ex_first = TRUE,
+#'                finetune_steps = 0, verbose = FALSE, historic = FALSE)
+#'
+#' @param y A numeric vector or time series of class \code{ts}.
+#' @param time A \code{date} vector which must have the same number of rows as \code{y}.
+#' @param xreg Optionally, a numerical vector or matrix of external regressors, which must have
+#' the same number of rows as \code{y}.
+#' @param freq A chracter identifying the frequency: \code{D} for daily, \code{M} for monthly,
+#' \code{H} for hourly, and \code{W} for weekly.
+#' @param clean_ex_first If \code{TRUE}, the exogenous signal is cleaned, otherwise the exogenous
+#' variables are applied after the large time model.
+#' @param finetune_steps The number of tuning steps used to train the large time model on the data.
+#' @inheritParams callTimeGPT
+#'
+#' @author Daniele Girolimetto
+#'
+#' @return An object of class "\code{TimeGPT}".
+#' @rdname TimeGPT
 #' @export
-#'
-#' @examples
-#' obj <- TimeGPT(AirPassengers)
-TimeGPT <- function(x, time, freq, token, clean_ex_first = TRUE, finetune_steps = 0,
-                    verbose = FALSE, historic = FALSE){
-  if(NCOL(x)!=1 | !is.numeric(x)){
-    stop("Only univariate time series are supported.", call. = FALSE)
+TimeGPT <- function(y, time, freq, xreg, token = NULL, clean_ex_first = TRUE,
+                    finetune_steps = 0, verbose = FALSE, historic = FALSE){
+  if(NCOL(y)!=1 | !is.numeric(y)){
+    cli::cli_abort("Only univariate time series are supported.")
+  }
+
+  if(!missing(xreg)){
+    cli::cli_abort("External regressors are supported yet.")
   }
 
   if(clean_ex_first){
@@ -23,25 +40,28 @@ TimeGPT <- function(x, time, freq, token, clean_ex_first = TRUE, finetune_steps 
   }
 
   if(missing(freq)){
-    stop("Provide a valid freq", call. = FALSE)
+    cli::cli_abort("Provide a valid freq")
+  }else{
+    freq <- match.arg(freq, c("D", "W", "M", "H"))
   }
-  api <- list(y = setNames(as.numeric(x), time),
+
+  api <- list(y = setNames(as.numeric(y), time),
               freq = freq,
               clean_ex_first = clean_ex_first,
               finetune_steps = finetune_steps)
 
-  resp_api <- NULL
-  fitted <- residuals <- rep(NA, length(x))
+  rsp_api <- NULL
+  fitted <- residuals <- rep(NA, length(y))
 
   if(historic){
-    resp_api <- callTimeGPT(convert2text(api), token = token,
+    rsp_api <- callTimeGPT(convert2text(api), token = token,
                             verbose = verbose, historic = historic)
-    if(resp_api$message=="success"){
-      start_na <- length(x)-length(resp_api$data$y)
-      fitted <- c(rep(NA, start_na), resp_api$data$value)
-      residuals <- c(rep(NA, start_na), resp_api$data$y-resp_api$data$value)
+    if(rsp_api$message=="success"){
+      start_na <- length(y)-length(rsp_api$data$y)
+      fitted <- c(rep(NA, start_na), rsp_api$data$value)
+      residuals <- c(rep(NA, start_na), rsp_api$data$y-rsp_api$data$value)
 
-      tspx <- tsp(x)
+      tspx <- tsp(y)
       if (!is.null(tspx)) {
         fitted <- ts(fitted, frequency = tspx[3], start = tspx[1])
         residuals <- ts(residuals, frequency = tspx[3], start = tspx[1])
@@ -49,20 +69,20 @@ TimeGPT <- function(x, time, freq, token, clean_ex_first = TRUE, finetune_steps 
     }
   }
 
-  obj <- structure(list(x = x,
+  obj <- structure(list(y = y,
                         method = "TimeGPT",
                         call = match.call(),
-                        series = deparse(substitute(x)),
+                        series = deparse(substitute(y)),
                         fitted = fitted,
-                        residuals = x-fitted,
-                        resp_api = resp_api,
+                        residuals = y-fitted,
+                        rsp_api = rsp_api,
                         api = api),
                    class = "TimeGPT")
   return(obj)
 }
 
 #' @export
-print.TimeGPT <- function(x, ...) {
+print.TimeGPT <- function(x, digits = max(3L, getOption("digits") - 3L), ...) {
   cat(paste(x$method, "\n\n"))
   if(!is.null(x$call)) {
     cat(paste("Call:\n", deparse1(x$call), "\n\n"))
