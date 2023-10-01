@@ -6,15 +6,15 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-`TimeGPT` is a generative pre-trained transformer model specialized in
-prediction ([https://docs.nixtla.io/docs](docs.nixtla.io/docs))
-developed by **Nixtla** <https://nixtla.io/terms>. It was trained on the
-largest collection of public time series and can predict the future
-values of a single time series based on the provided. The `TimeGPT API`
-developed by **Nixtla** provides an interface to this powerful model,
-allowing users to leverage its forecasting capabilities to predict
-future events based on past. This R package provides an interface to
-interact with the `TimeGPT API`.
+`TimeGPT` is a generative pre-trained transformer model for time series
+analysis ([https://docs.nixtla.io/docs](docs.nixtla.io/docs)) developed
+by **Nixtla** (<https://nixtla.io/terms>). It was trained on the largest
+collection of public time series and can predict the future values of a
+single time series based on the provided. The `TimeGPT API` developed by
+**Nixtla** provides an interface to this powerful model, allowing users
+to leverage its forecasting capabilities to predict future events based
+on past. This R package provides an interface to interact with the
+`TimeGPT API`.
 
 ## Installation
 
