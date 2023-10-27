@@ -8,7 +8,6 @@ Authors@R:
              role = c("aut", "cre"),
              email = "daniele.girolimetto@unipd.it",
              comment = c(ORCID = "0000-0001-9387-1232")))
-Maintainer: Daniele Girolimetto <daniele.girolimetto@phd.unipd.it>
 Description: Interface to interact with the TimeGPT API. TimeGPT is a generative pre-trained transformer model for time series analysis developed by  Nixtla <https://nixtla.io/>.
 License: GPL (>= 3)
 Encoding: UTF-8
