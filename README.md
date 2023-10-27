@@ -15,13 +15,10 @@ GPL-3](https://img.shields.io/badge/license-GPL--3-forestgreen.svg)](https://cra
 
 `TimeGPT` is a generative pre-trained transformer model for time series
 analysis ([https://docs.nixtla.io/docs](docs.nixtla.io/docs)) developed
-by **Nixtla** (<https://nixtla.io/terms>). It was trained on the largest
+by **Nixtla** (<https://nixtla.io>). It was trained on the largest
 collection of public time series and can predict the future values of a
-single time series based on the provided. The `TimeGPT API` developed by
-**Nixtla** provides an interface to this powerful model, allowing users
-to leverage its forecasting capabilities to predict future events based
-on past. This R package provides an interface to interact with the
-`TimeGPT API`.
+single time series based on the provided. This R package provides an R
+interface to interact with the `TimeGPT API`.
 
 ## Installation
 
@@ -52,10 +49,15 @@ obj <- TimeGPT(AirPassengers, time_air, freq = "M", verbose = TRUE, historic = T
 fore <- forecast(obj2, h = 12)
 ```
 
+## TODO
+
+- [ ] Implement external regressor (`xreg`)
+- [ ] Multivariate TimeGPT
+
 ## Copyright
 
 This R package is released under the *GNU General Public License v3.0*.
 The `TimeGPT` model and `API` are proprietary technologies developed by
 **Nixtla**, and all rights are reserved. The use of the `TimeGPT API` is
 subject to Nixtla’s terms and conditions, which can be found at
-<https://nixtla.io/terms>.
+<https://nixtla.io>.
