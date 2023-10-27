@@ -30,7 +30,7 @@ TimeGPT <- function(y, time, freq, xreg, token = NULL, clean_ex_first = TRUE,
   }
 
   if(!missing(xreg)){
-    cli::cli_abort("External regressors are supported yet.")
+    cli::cli_abort("External regressors are not supported yet.")
   }
 
   if(clean_ex_first){

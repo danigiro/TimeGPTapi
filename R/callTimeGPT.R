@@ -65,6 +65,8 @@ callTimeGPT <- function(text, token = NULL, verbose = FALSE, historic = FALSE){
 #' @param token The authorization token to interact with the \code{TimeGPT API}
 #' \url{https://dashboard.nixtla.io}.
 #'
+#' @author Daniele Girolimetto
+#'
 #' @return \code{get_timeGPT_token} returns the token.
 #' @rdname timeGPT_token
 #'

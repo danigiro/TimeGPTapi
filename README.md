@@ -49,10 +49,10 @@ obj <- TimeGPT(AirPassengers, time_air, freq = "M", verbose = TRUE, historic = T
 fore <- forecast(obj2, h = 12)
 ```
 
-## TODO
+## Todo
 
-- [ ] Implement external regressor (`xreg`)
-- [ ] Multivariate TimeGPT
+- Implement external regressor (`xreg`)
+- Multivariate TimeGPT
 
 ## Copyright
 

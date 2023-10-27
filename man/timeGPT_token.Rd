@@ -21,3 +21,6 @@ Set the \code{TimeGPT} token as an environment variable. You should add
 \code{TIMEGPT_TOKEN = <token>} to your \code{.Renviron} otherwise you will
 have to call this function every session.
 }
+\author{
+Daniele Girolimetto
+}

@@ -4,10 +4,23 @@
 \name{TimeGPTapi-package}
 \alias{TimeGPTapi}
 \alias{TimeGPTapi-package}
-\title{TimeGPTapi: Interact with the 'TimeGPT' API}
+\title{TimeGPTapi: Interact with the TimeGPT API}
 \description{
-Interface to interact with the 'TimeGPT' API developed by Nixtla \url{https://nixtla.io/}. TimeGPT is a generative pre-trained transformer model specialized in prediction \url{https://docs.nixtla.io/docs}.
+\code{TimeGPT} is a generative pre-trained transformer model for time series
+analysis (\url{https://docs.nixtla.io/docs}) developed by  \bold{Nixtla}
+(\url{https://nixtla.io}). It was trained on the largest collection of public
+time series and can predict the future values of a single time series based
+on the provided. This R package provides
+an R interface to interact with the \code{TimeGPT API}.
 }
+\section{Copyright}{
+
+This R package is released under the \emph{GNU General Public License v3.0}.
+The \code{TimeGPT} model and \code{API} are proprietary technologies developed
+by \bold{Nixtla}, and all rights are reserved. The use of the \code{TimeGPT API}
+is subject to Nixtla's terms and conditions, which can be found at \url{https://nixtla.io/}.
+}
+
 \seealso{
 Useful links:
 \itemize{
@@ -17,7 +30,6 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Daniele Girolimetto \email{daniele.girolimetto@phd.unipd.it} (\href{https://orcid.org/0000-0001-9387-1232}{ORCID}) [funder]
-
+Daniele Girolimetto
 }
-\keyword{internal}
+\keyword{package}

@@ -1,17 +1,15 @@
 Package: TimeGPTapi
 Type: Package
-Title: Interact with the 'TimeGPT' API
+Title: Interact with the TimeGPT API
 Version: 0.1.0
 Authors@R: 
     c(person(given = "Daniele",
              family = "Girolimetto",
-             role = c("aut", "cre", "fnd"),
-             email = "daniele.girolimetto@phd.unipd.it",
+             role = c("aut", "cre"),
+             email = "daniele.girolimetto@unipd.it",
              comment = c(ORCID = "0000-0001-9387-1232")))
 Maintainer: Daniele Girolimetto <daniele.girolimetto@phd.unipd.it>
-Description: Interface to interact with the 'TimeGPT' API developed by Nixtla <https://nixtla.io/>. 
-    TimeGPT is a generative pre-trained transformer model specialized 
-    in prediction <https://docs.nixtla.io/docs>.
+Description: Interface to interact with the TimeGPT API. TimeGPT is a generative pre-trained transformer model for time series analysis developed by  Nixtla <https://nixtla.io/>.
 License: GPL (>= 3)
 Encoding: UTF-8
 URL: https://github.com/danigiro/TimeGPTapi
@@ -20,9 +18,4 @@ RoxygenNote: 7.2.3
 Depends:
     R (>= 3.4.0)
 Imports: 
-    httr2,
-    jsonlite,
-    stats,
-    forecast,
-    cli,
-    askpass
+    httr2, jsonlite, stats, forecast, cli, askpass
